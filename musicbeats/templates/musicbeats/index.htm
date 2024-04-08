@@ -1,0 +1,93 @@
+{% extends 'musicbeats/basic.htm' %}
+{% block title %}BeatBox{% endblock %}
+
+{% block body %}
+<style>
+    @keyframes changeBackground {
+        0% { background: url("/static/musicbeats/anirudh.jpg"); }
+        25% { background: url("/static/musicbeats/arjith.jpg"); }
+        50% { background: url("/static/musicbeats/taylor1.jpeg"); }
+        75% { background: url("/static/musicbeats/u1.jpg"); }
+        100% { background: url("/static/musicbeats/oned.jpg"); }
+    }
+
+    body {
+        animation: changeBackground 20s infinite; /* Change images every 20 seconds */
+        font-family: "Akaya Kanadaka", system-ui;
+            font-weight: 400;
+            font-style: normal;
+    }
+    .tamil-text {
+        position: absolute; /* Position the Tamil text absolutely */
+        left: 50%; /* Adjust the left position */
+        top: 60%; 
+        transform: translate(-50%, -50%); /* Center the element horizontally and vertically */
+        text-align: center; /* Center align the text */
+        font-style: oblique;
+        color: white; /* Set text color */
+        font-family: "Akaya Kanadaka", system-ui;
+  font-weight: 400;
+  font-style: normal;
+    }
+    .Trending-text {
+      position: relative; /* Position relative to the parent container */
+      top: 100vh; /* Move 50% of the viewport height from the top */
+      color: rgb(0, 0, 0);
+      font-family: "Akaya Kanadaka", system-ui;
+  font-weight: 400;
+  font-style: normal;
+    }
+    .h2{
+        font: size 100px;% ;
+    }
+    
+</style>
+
+<div class="tamil-text">
+  <h1 >WELCOME TO BEATBOX</h1>
+  <p>-"In world of chaos,music is the calm"</p>
+</div>
+
+<!-- ################################ CARDS ##################################################### -->
+<div class="Trending-text">
+<h2 style="padding-left: 8%; padding-top: 2%;  text-align: center;color: white;">Trending Songs</h2>
+
+<div class="row" style="padding-top: 2%; padding-left: 7%; text-align: center;">
+    {% for i in song %}
+    <div class="col-md-4" style="padding-top: 1%;">
+        <div class="card" style="width: 18rem; display: inline-block;">
+            <img src="{{i.image}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <p class="card-text" style="color: green;">Tags: {{i.tags}}</p>
+                <p class="card-text" style="color: green;">Movie: {{i.movie}}</p>
+                <a href="/musicbeats/songs/{{i.song_id}}" class="btn btn-outline-danger">Listen Song</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<hr>
+
+<h3 style="padding-left: 8%; padding-top: 2%; text-align: center;color: white;">Your Listen Later</h3>
+
+<div class="row" style="padding-top: 2%; padding-left: 7%; text-align: center;">
+    {% for i in watch reversed %}
+    <div class="col-md-4" style="padding-top: 1%;">
+        <div class="card" style="width: 18rem; display: inline-block;">
+            <img src="{{i.image}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <p class="card-text" style="color: green;">Tags: {{i.tags}}</p>
+                <p class="card-text" style="color: green;">Movie: {{i.movie}}</p>
+                <a href="/musicbeats/songs/{{i.song_id}}" class="btn btn-outline-danger">Listen Song</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<hr>
+</div>
+<div class="row" style="padding-top: 2%; padding-left: 7%;"></div>
+
+{% endblock %}

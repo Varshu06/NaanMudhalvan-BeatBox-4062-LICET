@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>BeatBox</title>
+</head>
+{% block body %}
+<style>
+    body {
+        background: url("/static/musicbeats/login1.jpg") no-repeat fixed;
+        background-size: cover;
+        color: white;
+        margin: 0;
+        padding: 0;
+        font-family: "Akaya Kanadaka", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .signup-container {
+        position: absolute; /* Position the signup container absolutely */
+        top: 50%;
+        left: 70%;
+        transform: translate(-50%, -50%); /* Center the container horizontally and vertically */
+        padding: 20px;
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 0 10px rgba(255, 251, 251, 0.212);
+        width: 400px; /* Set width for the container */
+        margin-right: 15%; /* Add margin from the right side */
+        background-color: rgba(255, 255, 255, 0);
+        font-family: "Akaya Kanadaka", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .signup-container h2 {
+        text-align: center; /* Center align the SIGN UP text */
+    }
+    .form-group {
+        margin-bottom: 15px;
+        font-family: "Akaya Kanadaka", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        
+    }
+    .tamil-text {
+        position: absolute; /* Position the Tamil text absolutely */
+        left: 30%; /* Adjust the left position */
+        top: 5%; 
+        text-align:left; /* Center align the Tamil text */
+        font-family: "Akaya Kanadaka", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        
+    }
+    .btnbtn-primary{
+    position: absolute;
+    
+    border-radius:5px;
+    margin: 0;
+    
+    left: 45%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+    
+</style>
+<div class="tamil-text">
+    <p>"இசை, காதலின் மொழி; மனதில் நேசம் அடையும் பேச்சு"</p>
+</div>
+<div class="signup-container">
+    <h2>SIGN UP</h2>
+    <form method="POST" action="/musicbeats/signup">{% csrf_token %}
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Username</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="username">
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleFormControlInput1">First Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="firstname">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Last Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="lastname">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Password</label>
+            <input type="password" class="form-control" id="exampleFormControlInput1" name="pass1">
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Password (again)</label>
+            <input type="password" class="form-control" id="exampleFormControlInput1" name="pass2">
+        </div>
+        <div style="padding-top: 2%;">
+            <button type="submit" class="btnbtn-primary" >SignUp</button>
+        </div>
+    </form>
+    
+</div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>BeatBox</title>
+</head>
+{% block body %}
+<style>
+    body {
+        background: url("/static/musicbeats/login1.jpg") no-repeat fixed;
+        background-size: cover;
+        color: white;
+        margin: 0;
+        padding: 0;
+        font-family: "Akaya Kanadaka", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .container {
+        display: flex;
+        justify-content: flex-end; /* Align contents to the right */
+        align-items: center; /* Vertically center contents */
+        height: 100vh; /* Ensure full viewport height */
+        margin-right: 15%; /* Add margin from the right side */
+    }
+
+    .login-box {
+        background-color: rgba(255, 255, 255, 0); /* Semi-transparent white */
+        padding: 16px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 251, 251, 0.212);
+        text-align: center;
+        width: 300px; /* Adjust width as needed */
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .tamil-text {
+        position: absolute; /* Position the Tamil text absolutely */
+        left: 30%; /* Adjust the left position */
+        top: 5%; 
+        text-align:left; /* Center align the Tamil text */
+        
+    }
+    
+</style>
+<div class="tamil-text">
+    <p>"இசை, காதலின் மொழி; மனதில் நேசம் அடையும் பேச்சு"</p>
+</div>
+<div class="container">
+    <div class="login-box">
+        <h2>Login</h2>
+        <form action="/musicbeats/login" method="POST">{% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">Username</label><br>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" placeholder="Your Username">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label><br>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+            </div>
+            <button type="submit" class="btnbtn-primary">Login</button>
+        </form>
+    </div>
+</div>
+</html>
+{% endblock %}

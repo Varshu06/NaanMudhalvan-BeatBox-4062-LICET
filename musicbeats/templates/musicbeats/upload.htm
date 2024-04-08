@@ -1,0 +1,114 @@
+{%extends 'musicbeats/basic.htm'%}
+{% block title%}BeatBox{% endblock %}
+
+{% block body %}
+<style>
+body {
+  background: url("/static/musicbeats/concert.jpg") no-repeat fixed ;
+  
+  background-size: cover;
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: "Akaya Kanadaka", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.containermy-3 {
+        left:37%; 
+        justify-content: flex-end; /* Align contents to the right */
+        align-items: center; /* Vertically center contents */
+        height: 100vh; /* Ensure full viewport height */
+        margin-right: 15%; /* Add margin from the right side */
+        background-color: rgba(0 0 0 / 49%); /* Semi-transparent white */
+        padding: 16px;
+        position: absolute;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(253 253 253);
+        text-align:left;
+        width: 300px; /* Adjust width as needed */
+        height: 600px;
+        color: rgb(255, 255, 255);
+    }
+    #exampleInputEmail1.form-control{
+    width: 200px;
+    height:25px;
+  }
+  #exampleInputPassword1.form-control{
+    width: 200px;
+    height:25px;
+  }
+  #exampleFormControlFile1.form-control{
+    width: 200px;
+    height:25px;
+  }
+  .btnbtn-primary{
+    position: absolute;
+    background-color: blue;
+    color: rgb(255, 255, 255);
+    border-radius:5px;
+    margin: 0;
+    
+    left: 35%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  
+  
+   
+
+</style>
+<h2 style="text-align: center; padding-top: 2%; color: white;">Upload Your Music</h2>
+
+
+
+<div class="containermy-3">
+  
+    <form action="/musicbeats/upload" enctype="multipart/form-data" method="POST">{% csrf_token %}
+        <div class="form-group">
+          <label for="exampleInputEmail1">Your Music Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name" placeholder="Your Song Name">
+        </div>
+        
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Singer Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="singer" placeholder="Singer Name">
+          </div>
+
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Tags :</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="tag" placeholder="Tags (Seperate By Commas)">
+          </div>
+
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Image Link: (Associated With Your Music)</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="image" placeholder="Link to Image">
+          </div>    
+
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Movie Name</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Movie name in which this song is their" name="movie">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Credit</label>
+            <input transparent type="text" class="form-control" id="exampleInputPassword1" placeholder="Add Credit Link" name="credit">
+          </div> 
+
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Example file input</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file">
+          </div>
+        
+    <div style="padding-top: 3%; padding-bottom: 3%;">
+        <button type="submit" class="btnbtn-primary"style="height:30px;">Upload</button>
+    </div>
+      </form>
+    </div>
+{% endblock %}
